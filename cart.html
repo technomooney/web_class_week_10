@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+    <style>
+        td,th {
+            width: 25%;
+            text-align: center;
+            border: black 2px solid;
+        }
+        table {
+            border-collapse: collapse;
+
+        }
+        .monetary-value {
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <h1>Hello Vue!!!</h1>
+
+        <table id="app-table">
+            <th>Item</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <tr>
+
+                <td>{{ name }}</td>
+                <td>${{ unitPrice }}</td>
+                <td>
+                    <input min="10" type="number" v-model="quantity">
+                </td>
+                <td class="monetary-value">${{total}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    name: "Custom Sticker",
+                    quantity: 10,
+                    unitPrice:0.75
+                }
+            },
+            computed: {
+                total() {
+                    return (this.unitPrice * this.quantity).toFixed(2)
+                }
+            }
+
+        })
+
+        app.mount("#app")
+    </script>
+
+</body>
+</html>

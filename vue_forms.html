@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+
+</head>
+<body>
+
+    <div id="app">
+        <h1>Hello Vue Forms!!!</h1>
+
+        <label for="name">Please enter your name: </label>
+        <input v-model="name" id="name">
+        <p v-if="name">Your name was {{ name }}
+        <button v-on:click="clear">clear</button></p>
+
+        <p
+                v-else>Waiting for user input.....
+        </p>
+
+    </div>
+
+    <script>
+
+        let addExclamation;
+        let app = Vue.createApp({
+            data() {
+                return {
+                    name: "",
+                }
+            },
+            methods: {clear () {
+                this.name=""
+                }
+            },
+            computed: {
+                }
+        })
+
+        app.mount(('#app'))
+    </script>
+
+</body>
+</html>

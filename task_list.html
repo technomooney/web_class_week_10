@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <h1>Task List using view</h1>
+
+    <div id="app">
+
+        <label for="task-input"> Please put your task below:</label><br>
+        <input id="task-input" v-model="newTask">
+        <button v-on:click="addTask">Add task</button>
+
+        <ul>
+            <li v-for="task in taskList"> {{task}}</li>
+        </ul>
+    </div>
+
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    newTask:"",
+                    taskList: []
+                }
+            },
+            computed:{
+
+            },
+            methods: {
+                addTask() {
+                    this.taskList.push(this.newTask)
+                    this.newTask = ""
+                },
+                removeTask(index) {
+
+                }
+
+            }
+
+        })
+        app.mount("#app")
+    </script>
+
+</body>
+</html>

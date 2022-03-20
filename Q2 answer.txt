@@ -1,0 +1,4 @@
+the error means the vue data element was access but did or does not exist when it was accessed...
+you can safely ignore that if it is expected. to fix it the data field must be made or the typing errors should be fixed.
+
+ if that still doesn't work, check data sources, debugging will be needed.
